@@ -1,0 +1,36 @@
+version: "3"
+services:
+  m:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    restart: always
+    container_name: mysqlm
+    volumes:
+      # - ./data/binlog/mysql/mysqlm:/var/lib/mysql
+      # - ./config/binlog/master:/etc/mysql/conf.d
+      - ./data/gtid/mysql/mysqlm:/var/lib/mysql
+      - ./config/gtid/master:/etc/mysql/conf.d
+    ports:
+      - "3406:3306"
+    networks:
+      - code
+  s:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    restart: always
+    container_name: mysqls
+    volumes:
+     # - ./data/binlog/mysql/mysqls:/var/lib/mysql
+      # - ./config/binlog/slave:/etc/mysql/conf.d
+      - ./data/gtid/mysql/mysqls:/var/lib/mysql
+      - ./config/gtid/slave:/etc/mysql/conf.d
+    ports:
+      - "3506:3306"
+    networks:
+      - code
+
+networks:
+  code:
+    external: true

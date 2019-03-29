@@ -1,0 +1,8 @@
+[mysqld]
+server-id = 1 
+gtid_mode = on
+enforce-gtid-consistency = true
+
+log-bin = mysql-bin 
+binlog_format = row
+skip_slave_start = 1
