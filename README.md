@@ -14,7 +14,7 @@
 ##### CHANGE MASTER TO MASTER_HOST = 'mysqlmb',MASTER_PORT = 3306,MASTER_USER = 'repl',MASTER_PASSWORD = 'repl',MASTER_AUTO_POSITION = 1;
 ##### SET @@GLOBAL.read_only = ON;
 #### start slave; show slave status \G
-
+https://dev.mysql.com/doc/refman/8.0/en/replication.html<br/>
 https://dev.mysql.com/doc/refman/8.0/en/replication-gtids-howto.html<br/>
 https://www.hi-linux.com/posts/47176.html
 
